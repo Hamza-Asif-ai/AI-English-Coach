@@ -11,15 +11,13 @@ An AI-powered English learning platform built on **CrewAI multi-agent generation
 ![Groq](https://img.shields.io/badge/LLM-Groq%20(gpt--oss--20b)-F55036)
 ![Pydantic](https://img.shields.io/badge/Validation-Pydantic-E92063?logo=pydantic&logoColor=white)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite&logoColor=white)
-![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
+![Vercel](https://img.shields.io/badge/Frontend-Vercel-000000?logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Backend-Render-46E3B7?logo=render&logoColor=white)
 ![Theme](https://img.shields.io/badge/Theme-Light%20%2F%20Dark-lightgrey)
 
-> 🌐 **Live Demo:** see the [AI-English-Coach](https://ai-english-coach-ruddy.vercel.app/)) section below for the public URL.
+> 🌐 **Live Demo:** [ai-english-coach-ruddy.vercel.app](https://ai-english-coach-ruddy.vercel.app/)
 
-<!--
-Optional: add a live-demo badge once you have your public URL, for example:
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-brightgreen?logo=render&logoColor=white)](https://YOUR-FRONTEND-URL.onrender.com)
--->
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-brightgreen?logo=vercel&logoColor=white)](https://ai-english-coach-ruddy.vercel.app/)
 
 ---
 
@@ -69,12 +67,13 @@ Static worksheets and fixed question banks run out quickly, ignore the learner's
 ## 🌐 Live Demo
 
 <!--
-Replace the placeholder URLs below with your real Render URLs after deployment.
+The frontend URL is live. Replace the backend placeholders below with your real backend URL
+(for example your Render service) when you want to show them.
 -->
 
 | Service | URL |
 |---|---|
-| 🖥️ **Web App (Frontend)** | `https://YOUR-FRONTEND-URL.onrender.com` |
+| 🖥️ **Web App (Frontend)** | [https://ai-english-coach-ruddy.vercel.app/](https://ai-english-coach-ruddy.vercel.app/) |
 | ⚙️ **Backend API** | `https://YOUR-BACKEND-URL.onrender.com` |
 | 📖 **Interactive API Docs** | `https://YOUR-BACKEND-URL.onrender.com/docs` |
 | ❤️ **Health Check** | `https://YOUR-BACKEND-URL.onrender.com/api/health` |
@@ -101,7 +100,7 @@ Optional: add screenshots here once they are saved in docs/screenshots/
 | Database | SQLite (anonymous `client_id`, no login) |
 | Theme | Light / Dark switch, saved in the browser and applied before first paint |
 | Testing | pytest (real CrewAI Agent/Task/Crew with a fake LLM — no API key needed) + ESLint |
-| Deployment | Render (Web Service for the API, Static Site for the frontend) |
+| Deployment | Vercel (React frontend) + Render (FastAPI backend as a Web Service) |
 | Language | Python 3.10 – 3.13, JavaScript (ES modules) |
 
 ---
@@ -384,12 +383,27 @@ Environment variables:
 
 Environment variable: `VITE_API_URL` = your backend URL (no trailing `/`).
 
+### Frontend on Vercel (used for the live demo)
+
+The frontend can also be hosted on Vercel instead of a Render Static Site:
+
+| Field | Value |
+|---|---|
+| Root Directory | `frontend` |
+| Framework Preset | Vite |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+
+Environment variable: `VITE_API_URL` = your backend URL (no trailing `/`).
+
+Then set the backend's `CORS_ORIGINS` to the exact Vercel URL (no trailing `/`), for example `https://ai-english-coach-ruddy.vercel.app`, and redeploy the backend. Vercel creates a different URL for every preview branch, so previews need their own entry in `CORS_ORIGINS` (comma-separated).
+
 ### Finishing up
 
 1. Copy the frontend URL into the backend's `CORS_ORIGINS` and let the backend redeploy.
 2. Open `<backend-url>/api/health` — it should return `"status": "healthy"` and `"llm_configured": true`.
 3. Open the frontend URL and try every skill at every level.
-4. Add both URLs to the [Live Demo](#-live-demo) section.
+4. Add the final URLs to the [Live Demo](#-live-demo) section.
 
 > **Notes:** `VITE_API_URL` is baked in at build time — after changing it, redeploy the frontend with *Clear build cache & deploy*. CrewAI is a large library, so serverless functions are not a good fit; use a normal web service. On a free plan the memory is small and the disk is temporary, so SQLite progress can reset on restart — use a paid instance with a persistent disk if you want progress to survive.
 
