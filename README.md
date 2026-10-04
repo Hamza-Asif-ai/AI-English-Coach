@@ -14,7 +14,7 @@ An AI-powered English learning platform built on **CrewAI multi-agent generation
 ![Render](https://img.shields.io/badge/Deploy-Render-46E3B7?logo=render&logoColor=white)
 ![Theme](https://img.shields.io/badge/Theme-Light%20%2F%20Dark-lightgrey)
 
-> 🌐 **Live Demo:** see the [Live Demo](https://ai-english-coach-ruddy.vercel.app/)) section below for the public URL.
+> 🌐 **Live Demo:** see the [AI-English-Coach](https://ai-english-coach-ruddy.vercel.app/)) section below for the public URL.
 
 <!--
 Optional: add a live-demo badge once you have your public URL, for example:
