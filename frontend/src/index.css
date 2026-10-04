@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Dark theme. It is switched on by the "dark" class on <html>
+   (see the theme button in App.jsx). These rules are NOT inside a
+   Tailwind layer, so they always win over the light-theme classes.
+------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0b1220;
+  color: #e2e8f0;
+}
+
+/* surfaces */
+.dark .bg-slate-50 { background-color: #0f172a; }
+.dark .bg-white { background-color: #172033; }
+.dark .bg-slate-100 { background-color: #263149; }
+.dark .hover\:bg-slate-50:hover { background-color: #1e293b; }
+.dark .disabled\:bg-slate-50:disabled { background-color: #0f172a; }
+
+/* text */
+.dark .text-slate-800 { color: #f1f5f9; }
+.dark .text-slate-700 { color: #e2e8f0; }
+.dark .text-slate-600 { color: #cbd5e1; }
+.dark .text-slate-500 { color: #a3b1c6; }
+.dark .text-slate-400 { color: #8392aa; }
+
+/* borders */
+.dark .border-slate-200 { border-color: #2b3852; }
+.dark .border-slate-300 { border-color: #3c4b6a; }
+.dark .hover\:border-blue-300:hover { border-color: #3b82f6; }
+
+/* blue */
+.dark .bg-blue-50 { background-color: #14284d; }
+.dark .bg-blue-100 { background-color: #1e3a6e; }
+.dark .border-blue-200 { border-color: #1e3a8a; }
+.dark .text-blue-600 { color: #6aa8ff; }
+.dark .text-blue-800 { color: #bfdbfe; }
+.dark .ring-blue-200 { --tw-ring-color: #1d4ed8; }
+
+/* green */
+.dark .bg-green-50 { background-color: #0f2b1e; }
+.dark .bg-green-100 { background-color: #14442b; }
+.dark .border-green-200 { border-color: #1f6b3f; }
+.dark .border-green-300 { border-color: #1f8a4c; }
+.dark .text-green-800 { color: #bbf7d0; }
+
+/* red */
+.dark .bg-red-50 { background-color: #321517; }
+.dark .border-red-200 { border-color: #7f1d1d; }
+.dark .text-red-700 { color: #fca5a5; }
+
+/* orange */
+.dark .bg-orange-50 { background-color: #2e1c0d; }
+.dark .bg-orange-100 { background-color: #6b2c10; }
+.dark .border-orange-200 { border-color: #9a3412; }
+.dark .text-orange-800 { color: #fed7aa; }
+
+/* purple */
+.dark .bg-purple-50 { background-color: #25173a; }
+.dark .bg-purple-100 { background-color: #4a2584; }
+.dark .border-purple-200 { border-color: #6b21a8; }
+.dark .text-purple-600 { color: #c79bff; }
+
+/* amber */
+.dark .bg-amber-50 { background-color: #2c2209; }
+.dark .bg-amber-100 { background-color: #6b3f10; }
+.dark .border-amber-200 { border-color: #92400e; }
+.dark .text-amber-700 { color: #fcd34d; }
+.dark .text-amber-800 { color: #fde68a; }

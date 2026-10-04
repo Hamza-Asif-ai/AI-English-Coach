@@ -1,0 +1,7 @@
+# Tested together. Python 3.10 - 3.13 (CrewAI does not support 3.14 yet).
+fastapi==0.142.2
+uvicorn[standard]==0.54.0
+python-dotenv==1.2.4
+crewai==1.15.23
+litellm==1.104.0
+groq==1.7.0
